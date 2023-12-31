@@ -39,7 +39,7 @@ router.post('/', async (req,res)=>{
     user = await user.save();
 
     if(!user)
-    return res.status(400).send('the user cannot be created!')
+    return res.status(400).send('L\'utilisateur n\'a pas pu être crée!');
 
     res.send(user);
 })
@@ -62,6 +62,7 @@ router.put('/:id',async (req, res)=> {
             passwordHash: newPassword,
             phone: req.body.phone,
             isAdmin: req.body.isAdmin,
+            role: req.body.role,
             street: req.body.street,
             apartment: req.body.apartment,
             zip: req.body.zip,
@@ -110,6 +111,7 @@ router.post('/register', async (req,res)=>{
         passwordHash: bcrypt.hashSync(req.body.password, 10),
         phone: req.body.phone,
         isAdmin: req.body.isAdmin,
+        role: req.body.role,
         street: req.body.street,
         apartment: req.body.apartment,
         zip: req.body.zip,
