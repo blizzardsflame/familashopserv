@@ -1,6 +1,8 @@
 const {Product} = require('../models/product');
 const express = require('express');
 const { Category } = require('../models/category');
+const { subCategory } = require('../models/subCategory');
+const { Brand } = require('../models/brand');
 const router = express.Router();
 const mongoose = require('mongoose');
 
@@ -42,6 +44,7 @@ router.post(`/`, async (req, res) =>{
         brand: req.body.brand,
         price: req.body.price,
         category: req.body.category,
+        subCategory: req.body.subCategory,
         countInStock: req.body.countInStock,
         rating: req.body.rating,
         numReviews: req.body.numReviews,
@@ -73,6 +76,7 @@ router.put('/:id',async (req, res)=> {
             brand: req.body.brand,
             price: req.body.price,
             category: req.body.category,
+            subCategory: req.body.subCategory,
             countInStock: req.body.countInStock,
             rating: req.body.rating,
             numReviews: req.body.numReviews,

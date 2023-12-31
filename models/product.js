@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
     price: { type: Number, defailt: 0 },
     countInStock: { type: Number, required: true },
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
-    subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Subcategory', required: true },
+    subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Subcategory', default:'' },
     brand: { type: mongoose.Schema.Types.ObjectId, ref: 'Brand', required: true },
     // Add other product-related fields as needed
     rating: {
