@@ -9,5 +9,14 @@ const subcategorySchema = new mongoose.Schema({
   });
 
 
+subcategorySchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+subcategorySchema.set('toJSON', {
+    virtuals: true,
+});
+
+
 // Create the subcategory model
 exports.Subcategory = mongoose.model('Subcategory', subcategorySchema);

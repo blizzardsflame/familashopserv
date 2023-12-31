@@ -9,5 +9,12 @@ const productCollectionSchema = new mongoose.Schema({
   });
 
 
+productCollectionSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+productCollectionSchema.set('toJSON', {
+    virtuals: true,
+});
 
 exports.ProductCollection = mongoose.model('ProductCollection', productCollectionSchema);

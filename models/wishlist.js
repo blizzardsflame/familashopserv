@@ -8,5 +8,12 @@ const wishlistSchema = new mongoose.Schema({
     // Add other wishlist-related fields as needed
   });
 
+wishlistSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+wishlistSchema.set('toJSON', {
+    virtuals: true,
+});
 
 exports.Wishlist = mongoose.model('Wishlist', wishlistSchema);

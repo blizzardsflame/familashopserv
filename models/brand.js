@@ -7,4 +7,12 @@ const brandSchema = new mongoose.Schema({
     // Add other brand-related fields as needed
   });
 
+brandSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+brandSchema.set('toJSON', {
+    virtuals: true,
+});
+
 exports.Brand = mongoose.model('Brand', brandSchema);
